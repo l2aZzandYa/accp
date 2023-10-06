@@ -1,5 +1,6 @@
 $tablet-width: 768px;
 $desktop-width: 1024px;
+
 @mixin tablet {
   @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
     @content;
@@ -19,7 +20,7 @@ $desktop-width: 1024px;
   flex-direction: column;
   align-items: center;
   font-size: calc(10px + 2vmin);
-  padding: 20px;
+  padding: 10px 10px 40px 10px;
 
   @include desktop {
     justify-content: center;
@@ -37,6 +38,11 @@ $desktop-width: 1024px;
   align-items: center;
   justify-content: center;
   margin-bottom: 30px;
+  flex-wrap: wrap;
+
+  @include desktop {
+    flex-wrap: nowrap;
+  }
 
   >div {
     padding: 10px 14px;
@@ -61,6 +67,17 @@ $desktop-width: 1024px;
     &.enabled {
       background-color: #2fd23a;
     }
+  }
+}
+
+.logo {
+  flex: 1 auto;
+  width: 100%;
+  text-align: center;
+
+  @include desktop {
+    flex: 0;
+    width: auto;
   }
 }
 
@@ -114,10 +131,24 @@ $desktop-width: 1024px;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  min-width: 350px;
+  min-width: 80%;
+  flex-wrap: wrap;
+
+  @include desktop {
+    flex-wrap: nowrap;
+    min-width: 350px;
+  }
 
   label {
     font-size: 12px;
+    flex: 1 auto;
+    width: 100%;
+    text-align: center;
+
+    @include desktop {
+      flex: 0;
+      width: auto;
+    }
   }
 
   input {

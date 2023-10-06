@@ -100,8 +100,10 @@ const Card = () => {
     return (
         <div className='card-container'>
             <div className='card-controls'>
-                <img src={`${process.env.PUBLIC_URL}/logo192.png`} className="logo"
-                    alt="AWS" width={100} height={100} />
+                <div className='logo'>
+                    <img src={`${process.env.PUBLIC_URL}/logo192.png`}
+                        alt="AWS" width={100} height={100} />
+                </div>
                 <div className="next" onClick={nextQuestion}>
                     <span>Next</span>
                 </div>
