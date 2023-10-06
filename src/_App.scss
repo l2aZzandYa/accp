@@ -91,6 +91,8 @@ $desktop-width: 1024px;
   transition: transform 0.8s;
   transform-style: preserve-3d;
   margin-bottom: 40px;
+  border-radius: 10px;
+  position: relative;
 
   .card-front,
   .card-back {
@@ -100,6 +102,12 @@ $desktop-width: 1024px;
 
   .card-back {
     transform: rotateY(180deg);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding: 20px 30px 30px 30px;
   }
 
   .question {
@@ -117,7 +125,7 @@ $desktop-width: 1024px;
     background-color: #477b4b;
 
     .card-front {
-      display: none;
+      visibility: hidden;
     }
   }
 
