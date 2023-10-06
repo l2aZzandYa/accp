@@ -151,6 +151,7 @@ $desktop-width: 1024px;
   align-items: center;
   flex-wrap: wrap;
   margin: 0 20px;
+  border-radius: 10px;
 
   @include desktop {
     flex-wrap: nowrap;
