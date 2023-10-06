@@ -37,9 +37,9 @@ const Card = () => {
         nextExam = (reverse = false) => {
             setQuestion(1);
             if (exam > lastExam) setExam(lastExam);
-            if (!reverse && exam == lastExam) setExam(1);
-            else if (reverse && exam == 1) setExam(lastExam);
-            else setExam(reverse ? exam - 1 : exam + 1);
+            if (reverse === false && exam == lastExam) setExam(1);
+            else if (reverse === true && exam == 1) setExam(lastExam);
+            else setExam(reverse === true ? exam - 1 : exam + 1);
         },
         nextQuestion = (reverse = false) => {
             setReveal(false);
@@ -52,9 +52,9 @@ const Card = () => {
                 setQuestion(rQ == question ? rQ++ : rQ);
                 return;
             }
-            if (!reverse && question == lastQuestion) nextExam();
-            else if (reverse && question == 1) nextExam(reverse);
-            else setQuestion(reverse ? question - 1 : question + 1);
+            if (reverse === false && question == lastQuestion) nextExam();
+            else if (reverse === true && question == 1) nextExam(reverse);
+            else setQuestion(reverse ===true ? question - 1 : question + 1);
         },
         reset = () => {
             setQuestion(1);
