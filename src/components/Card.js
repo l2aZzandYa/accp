@@ -54,7 +54,7 @@ const Card = () => {
             }
             if (reverse === false && question == lastQuestion) nextExam();
             else if (reverse === true && question == 1) nextExam(reverse);
-            else setQuestion(reverse ===true ? question - 1 : question + 1);
+            else setQuestion(reverse === true ? question - 1 : question + 1);
         },
         reset = () => {
             setQuestion(1);
@@ -80,7 +80,22 @@ const Card = () => {
             if (q > lastQuestion) q = lastQuestion;
             setExam(ex ? ex : exam);
             setQuestion(q ? q : question);
-        };
+        },
+        [touchStart, setTouchStart] = useState(null),
+        [touchEnd, setTouchEnd] = useState(null),
+        minSwipeDistance = 50,
+        onTouchStart = (e) => {
+            setTouchEnd(null)
+            setTouchStart(e.targetTouches[0].clientX)
+        },
+        onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX),
+        onTouchEnd = () => {
+            if (!touchStart || !touchEnd) return
+            const distance = touchStart - touchEnd
+            const isLeftSwipe = distance > minSwipeDistance
+            const isRightSwipe = distance < -minSwipeDistance
+            if (isLeftSwipe || isRightSwipe) nextQuestion(!!isRightSwipe);
+        }
 
     document.onkeydown = function (event) {
         switch (event.keyCode) {
@@ -114,7 +129,9 @@ const Card = () => {
                     <span>Reset</span>
                 </div>
             </div>
-            <div className={`card ${reveal ? 'show' : ''}`} onClick={() => { setReveal(!reveal) }}>
+            <div className={`card ${reveal ? 'show' : ''}`}
+                onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}
+                onClick={() => { setReveal(!reveal) }}>
                 <div className='card-front'>
                     <div className='card-current'>{`${question} of the exam ${exam}:`}</div>
                     <div className="question" dangerouslySetInnerHTML={{ __html: data.question }}></div>

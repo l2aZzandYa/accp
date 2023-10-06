@@ -29,7 +29,10 @@ $desktop-width: 1024px;
 
 .card-container {
   max-width: 800px;
-  padding: 20px;
+  
+  @include desktop {
+    padding: 20px;
+  }
 }
 
 .card-controls {
@@ -82,7 +85,8 @@ $desktop-width: 1024px;
 }
 
 .card {
-  background-color: #fff;
+  background-color: #646363;
+  color: #fff;
   padding: 20px 30px 30px 30px;
   transition: transform 0.8s;
   transform-style: preserve-3d;
@@ -110,7 +114,7 @@ $desktop-width: 1024px;
 
   &.show {
     transform: rotateY(180deg);
-    background-color: #d9d9d9;
+    background-color: #477b4b;
 
     .card-front {
       display: none;
@@ -138,10 +142,12 @@ $desktop-width: 1024px;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
+  margin: 0 20px;
 
   @include desktop {
     flex-wrap: nowrap;
     min-width: 350px;
+    margin: 0;
   }
 
   label {
