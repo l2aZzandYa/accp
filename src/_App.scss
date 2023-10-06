@@ -1,0 +1,107 @@
+$tablet-width: 768px;
+$desktop-width: 1024px;
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+.App {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  padding: 20px;
+
+  @include desktop {
+    justify-content: center;
+  }
+}
+
+.card-container {
+  max-width: 800px;
+  padding: 20px;
+}
+
+.card-controls {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+
+  >div {
+    padding: 10px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+  }
+
+  .next {
+    background-color: #2749c2;
+    color: #fff;
+  }
+
+  .reset {
+    background-color: #c2274b;
+    color: #fff;
+  }
+
+  .random {
+    background-color: #a69f9a;
+
+    &.enabled {
+      background-color: #2fd23a;
+    }
+  }
+}
+
+.card {
+  background-color: #fff;
+  padding: 20px 30px;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+
+  .card-front,
+  .card-back {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  .card-back {
+    transform: rotateY(180deg);
+  }
+
+  .question {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .choice {
+    margin-bottom: 8px;
+  }
+
+  &.show {
+    transform: rotateY(180deg);
+    background-color: #d9d9d9;
+
+    .card-front {
+      display: none;
+    }
+  }
+
+  &:not(.show) {
+    .card-back {
+      display: none;
+    }
+  }
+}
