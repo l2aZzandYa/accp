@@ -36,12 +36,14 @@ const Card = () => {
         },
         nextExam = (reverse = false) => {
             setQuestion(1);
+            if (exam > lastExam) setExam(lastExam);
             if (!reverse && exam == lastExam) setExam(1);
             else if (reverse && exam == 1) setExam(lastExam);
             else setExam(reverse ? exam - 1 : exam + 1);
         },
         nextQuestion = (reverse = false) => {
             setReveal(false);
+            if (question > lastQuestion) setQuestion(lastQuestion);
             if (random) {
                 const rE = Math.floor(Math.random() * lastExam) + 1,
                     rQ = Math.floor(Math.random() * lastQuestion) + 1;
@@ -68,6 +70,16 @@ const Card = () => {
             }
 
             return <div>{t}</div>;
+        },
+        goTo = (e) => {
+            e.preventDefault();
+            let ex = document.getElementById('goto-exam').value,
+                q = document.getElementById('goto-question').value;
+
+            if (ex > lastExam) ex = lastExam;
+            if (q > lastQuestion) q = lastQuestion;
+            setExam(ex ? ex : exam);
+            setQuestion(q ? q : question);
         };
 
     document.onkeydown = function (event) {
@@ -109,6 +121,18 @@ const Card = () => {
                     <div className="question" dangerouslySetInnerHTML={{ __html: data.question }}></div>
                     <div className="answer">{data.answer}</div>
                 </div>
+            </div>
+            <div className='card-controls'>
+                <form className='card-goto' onSubmit={goTo}>
+                    <label for="goto-exam">Navigate to</label>
+                    <input name="exam" placeholder='Exam' id="goto-exam"
+                        type="number" min="1" max={lastExam} required="true" />
+                    <input name="question" placeholder='Question' id="goto-question"
+                        type="number" min="1" max={lastQuestion} required="true" />
+                    <button className='goto-submit'>
+                        <span>GO</span>
+                    </button>
+                </form>
             </div>
         </div>
     );

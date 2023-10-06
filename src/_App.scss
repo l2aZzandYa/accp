@@ -69,6 +69,7 @@ $desktop-width: 1024px;
   padding: 20px 30px;
   transition: transform 0.8s;
   transform-style: preserve-3d;
+  margin-bottom: 40px;
 
   .card-front,
   .card-back {
@@ -103,5 +104,37 @@ $desktop-width: 1024px;
     .card-back {
       display: none;
     }
+  }
+}
+
+.card-goto {
+  padding: 10px 14px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 350px;
+
+  label {
+    font-size: 12px;
+  }
+
+  input {
+    width: 80px;
+    padding: 4px 8px;
+  }
+
+  button {
+    cursor: pointer;
+    padding: 5px;
+    min-height: 34px;
+    min-width: 50px;
+    text-align: center;
+    background-color: #313030;
+    color: #fff;
+    border: 0;
+    border-radius: 6px;
+    font-weight: 700;
   }
 }
