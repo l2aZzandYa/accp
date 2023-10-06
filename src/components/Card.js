@@ -116,10 +116,12 @@ const Card = () => {
             </div>
             <div className={`card ${reveal ? 'show' : ''}`} onClick={() => { setReveal(!reveal) }}>
                 <div className='card-front'>
+                    <div className='card-current'>{`${question} of the exam ${exam}:`}</div>
                     <div className="question" dangerouslySetInnerHTML={{ __html: data.question }}></div>
                     <div className="choices">{getChoices(data.choices)}</div>
                 </div>
                 <div className='card-back'>
+                    <div className='card-current'>{`${question} of the exam ${exam}:`}</div>
                     <div className="question" dangerouslySetInnerHTML={{ __html: data.question }}></div>
                     <div className="answer">{data.answer}</div>
                 </div>

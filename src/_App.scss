@@ -83,7 +83,7 @@ $desktop-width: 1024px;
 
 .card {
   background-color: #fff;
-  padding: 20px 30px;
+  padding: 20px 30px 30px 30px;
   transition: transform 0.8s;
   transform-style: preserve-3d;
   margin-bottom: 40px;
@@ -122,6 +122,12 @@ $desktop-width: 1024px;
       display: none;
     }
   }
+
+  .card-current {
+    font-size: 12px;
+    font-style: italic;
+    margin-bottom: 15px;
+  }
 }
 
 .card-goto {
@@ -131,7 +137,6 @@ $desktop-width: 1024px;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  min-width: 80%;
   flex-wrap: wrap;
 
   @include desktop {
