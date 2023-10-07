@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/accp/static/css/main.b761d896.css",
-    "main.js": "/accp/static/js/main.b10590ed.js",
+    "main.css": "/accp/static/css/main.2afed20a.css",
+    "main.js": "/accp/static/js/main.a9bf84cb.js",
     "static/js/787.0a3725d1.chunk.js": "/accp/static/js/787.0a3725d1.chunk.js",
     "static/media/practice-exam-16.md": "/accp/static/media/practice-exam-16.87749fd6c07f851dae54.md",
     "static/media/practice-exam-15.md": "/accp/static/media/practice-exam-15.818eddd6a06f65b62d1a.md",
@@ -27,12 +27,12 @@
     "static/media/practice-exam-10.md": "/accp/static/media/practice-exam-10.b4bc9ebf3e02d30beb8a.md",
     "static/media/practice-exam-12.md": "/accp/static/media/practice-exam-12.cf14e5dddef24069b7af.md",
     "index.html": "/accp/index.html",
-    "main.b761d896.css.map": "/accp/static/css/main.b761d896.css.map",
-    "main.b10590ed.js.map": "/accp/static/js/main.b10590ed.js.map",
+    "main.2afed20a.css.map": "/accp/static/css/main.2afed20a.css.map",
+    "main.a9bf84cb.js.map": "/accp/static/js/main.a9bf84cb.js.map",
     "787.0a3725d1.chunk.js.map": "/accp/static/js/787.0a3725d1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b761d896.css",
-    "static/js/main.b10590ed.js"
+    "static/css/main.2afed20a.css",
+    "static/js/main.a9bf84cb.js"
   ]
 }
