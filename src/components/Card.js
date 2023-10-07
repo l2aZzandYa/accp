@@ -39,7 +39,7 @@ const Card = () => {
             if (exam > lastExam) setExam(lastExam);
             if (reverse === false && exam == lastExam) setExam(1);
             else if (reverse === true && exam == 1) setExam(lastExam);
-            else setExam(reverse === true ? exam - 1 : exam + 1);
+            else setExam(reverse === true ? parseInt(exam) - 1 : parseInt(exam) + 1);
         },
         nextQuestion = (reverse = false) => {
             setReveal(false);
@@ -54,7 +54,7 @@ const Card = () => {
             }
             if (reverse === false && question == lastQuestion) nextExam();
             else if (reverse === true && question == 1) nextExam(reverse);
-            else setQuestion(reverse === true ? question - 1 : question + 1);
+            else setQuestion(reverse === true ? parseInt(question) - 1 : parseInt(question) + 1);
         },
         reset = () => {
             setQuestion(1);

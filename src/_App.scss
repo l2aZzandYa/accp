@@ -94,6 +94,10 @@ $desktop-width: 1024px;
   border-radius: 10px;
   position: relative;
 
+  @include desktop {
+    width: 800px;
+  }
+
   .card-front,
   .card-back {
     -webkit-backface-visibility: hidden;
