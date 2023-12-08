@@ -119,7 +119,7 @@ const Card = () => {
                     <img src={`${process.env.PUBLIC_URL}/logo192.png`}
                         alt="AWS" width={100} height={100} />
                 </div>
-                <div className="next" onClick={nextQuestion}>
+                <div className="next" onClick={() => { nextQuestion() }}>
                     <span>Next</span>
                 </div>
                 <div className={`random ${random ? 'enabled' : 'disabled'}`} onClick={toggleRandom}>
