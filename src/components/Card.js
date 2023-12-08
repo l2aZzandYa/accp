@@ -52,8 +52,8 @@ const Card = () => {
                 setQuestion(rQ == question ? rQ++ : rQ);
                 return;
             }
-            if (reverse === false && question == lastQuestion) nextExam();
-            else if (reverse === true && question == 1) nextExam(reverse);
+            if (reverse === false && question >= lastQuestion) nextExam();
+            else if (reverse === true && question <= 1) nextExam(reverse);
             else setQuestion(reverse === true ? parseInt(question) - 1 : parseInt(question) + 1);
         },
         reset = () => {
@@ -83,7 +83,7 @@ const Card = () => {
         },
         [touchStart, setTouchStart] = useState(null),
         [touchEnd, setTouchEnd] = useState(null),
-        minSwipeDistance = 50,
+        minSwipeDistance = 100,
         onTouchStart = (e) => {
             setTouchEnd(null)
             setTouchStart(e.targetTouches[0].clientX)
